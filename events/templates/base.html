@@ -1,0 +1,109 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <title>
+        {% block title %}
+
+        {% endblock %}
+        StarEvent
+    </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap 4 -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+
+<body class="d-flex flex-column min-vh-100">
+
+    <!-- NAVBAR -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm">
+        <a class="navbar-brand" href="#">StarEvent</a>
+
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#mainNavbar">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="mainNavbar">
+            <ul class="navbar-nav mx-auto">
+                <li class="nav-item"><a class="nav-link" href="#">Accueil</a></li>
+                <li class="nav-item"><a class="nav-link" href="#">Événements</a></li>
+                <li class="nav-item"><a class="nav-link" href="#">Contact</a></li>
+            </ul>
+
+            <div class="d-flex align-items-center">
+                <a href="#" class="btn btn-primary mr-3 publish-btn">
+                    Publier un événement
+                </a>
+
+                <!-- USER DROPDOWN -->
+
+                <div class="dropdown">
+                    {% if user.is_authenticated %}
+                    <button class="btn btn-success user-icon">
+                        <i class="fas fa-cog"></i>
+                    </button>
+                    <button class="btn btn-danger user-icon">
+                        <a class="text-white" href="{% url 'deconnexion' %}">
+                            <i class="fas fa-sign-out-alt text-white"></i>
+                            {{ user.username }}
+                        </a>
+                    </button>
+                    {% else %}
+                    <button class="btn btn-light dropdown-toggle user-icon" data-toggle="dropdown">
+                        <i class="fas fa-user"></i>
+                    </button>
+                    {% endif %}
+
+                    <div class="dropdown-menu dropdown-menu-right p-3 login-dropdown">
+                        <h6 class="text-center">Connexion</h6>
+
+
+
+                        <form method="post" action="{% url 'connexion' %}">
+                            {% csrf_token %}
+                            <div class="form-group">
+                                <input type="email" name="email" class="form-control" placeholder="Email">
+                            </div>
+                            <div class="form-group">
+                                <input type="password" name="password" class="form-control" placeholder="Mot de passe">
+                            </div>
+                            <p>Pas de compte ? <a href="#">Inscrivez-vous</a></p>
+                            <a href="#">Mot de passe oublié ?</a>
+                            <button class="btn btn-primary btn-block">Se connecter</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    {% block content %}
+
+    {% endblock %}
+
+    <!-- FLOATING ADD BUTTON (MOBILE) -->
+    <a href="#" class="floating-add-btn d-lg-none">
+        <i class="fas fa-plus"></i>
+    </a>
+
+    <!-- FOOTER -->
+    <footer class="bg-dark text-white text-center py-3 mt-auto">
+        © 2025 - Tous droits réservés
+    </footer>
+
+    <!-- JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</body>
+
+</html>

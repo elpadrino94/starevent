@@ -1,0 +1,86 @@
+/* HERO */
+.hero {
+    height: 40vh;
+    background: url('https://picsum.photos/1200/600') center/cover no-repeat;
+}
+
+/* CARDS */
+.col-md-9 {
+    margin-top: 30px;
+}
+
+.event-card img {
+    height: 200px;
+    object-fit: cover;
+}
+
+/* SIDEBAR */
+.category-dropdown {
+    display: none;
+}
+
+/* LOGIN DROPDOWN */
+.login-dropdown {
+    width: 250px;
+}
+
+/* FLOATING BUTTON */
+.floating-add-btn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: #007bff;
+    color: #fff;
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+    z-index: 1000;
+}
+
+/* RESPONSIVE */
+@media (max-width: 991px) {
+    .sidebar .category-list {
+        display: none;
+    }
+
+    .category-dropdown {
+        display: block;
+    }
+
+    .publish-btn {
+        display: none;
+    }
+}
+
+/* LOGIN DROPDOWN */
+.login-dropdown {
+    width: 260px;
+}
+
+/* FIX MOBILE LOGIN DROPDOWN */
+@media (max-width: 576px) {
+    .login-dropdown {
+        position: fixed !important;
+        top: 215px;
+        /* sous la navbar */
+        right: 10px !important;
+        left: 10px !important;
+        /* empêche le débordement */
+        width: auto;
+        max-width: calc(100% - 20px);
+        transform: none !important;
+    }
+
+    .form-control {
+        /* empêche le débordement */
+        width: 70%;
+        max-width: calc(100% - 20px);
+        transform: none !important;
+        display: flex;
+        justify-content: center;
+    }
+}
