@@ -1,32 +1,106 @@
-<!-- events/templates/events/event_create.html -->
-{% load static %}
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <title>Créer un événement</title>
-    <link rel="stylesheet" href="{% static 'events/css/event_form.css' %}">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-</head>
-<body>
-<div class="container mt-5">
-    <h2 class="mb-4">Créer un nouvel événement</h2>
-    <form method="post" enctype="multipart/form-data" class="needs-validation">
-        {% csrf_token %}
-        {% for field in form %}
-            <div class="form-group">
-                {{ field.label_tag }}
-                {{ field }}
-                {% if field.errors %}
-                    <div class="text-danger">{{ field.errors }}</div>
-                {% endif %}
+{% extends "base.html" %}
+
+{% block title %}
+Ajouter un événement -
+{% endblock %}
+{% block content %}
+
+<div class="container my-5">
+    <div class="row justify-content-center">
+        <div class="col-lg-8 col-md-10">
+            <div class="card event-card">
+                <div class="card-header text-center">
+                    <h4>Publier un événement</h4>
+                    <p class="mb-0">Remplissez les informations de votre activité</p>
+                </div>
+
+                <div class="card-body">
+                    <form method="post" enctype="multipart/form-data">
+                        {% csrf_token %}
+
+                        <!-- Title -->
+                        <div class="form-group">
+                            <label>Titre de l’événement</label>
+                            {{ form.title }}
+                            <!-- <input type="text" class="form-control" placeholder="Ex: Concert Live" required> -->
+                        </div>
+
+                        <!-- Slug -->
+                        <div class="form-group">
+                            <label>Slug (URL)</label>
+                            {{ form.slug }}
+                            <!-- <input type="text" class="form-control" placeholder="concert-live-lome"> -->
+                        </div>
+
+                        <!-- Description -->
+                        <div class="form-group">
+                            <label>Description</label>
+                            {{ form.description }}
+                            required></textarea>
+                        </div>
+
+                        <!-- Dates -->
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <label>Date & heure de début</label>
+                                {{form.start_datetime}}
+                                <!-- <input type="datetime-local" class="form-control" required> -->
+                            </div>
+
+                            <div class="form-group col-md-6">
+                                <label>Date & heure de fin</label>
+                                {{ form.end_datetime }}
+                                <!-- <input type="datetime-local" class="form-control" required> -->
+                            </div>
+                        </div>
+
+                        <!-- Location -->
+                        <div class="form-group">
+                            <label>Lieu</label>
+                            {{ form.location }}
+                            <!-- <input type="text" class="form-control" placeholder="Ex: Palais des Congrès" required> -->
+                        </div>
+
+                        <!-- City & Category -->
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <label>Ville</label>
+                                {{ form.city }}
+                                <!-- <input type="text" class="form-control" placeholder="Lomé"> -->
+                            </div>
+
+                            <div class="form-group col-md-6">
+                                <label>Catégorie</label>
+                                {{ form.category }}
+                                <!-- <select class="form-control">
+                                    <option selected disabled>Choisir une catégorie</option>
+                                    <option>Concert</option>
+                                    <option>Conférence</option>
+                                    <option>Formation</option>
+                                    <option>Sport</option>
+                                    <option>Culture</option>
+                                </select> -->
+                            </div>
+                        </div>
+
+                        <!-- Image -->
+                        <div class="form-group">
+                            <label>Image de l’événement</label>
+                            {{ form.image }}
+                            <!-- <input type="file" class="form-control-file"> -->
+                        </div>
+
+                        <!-- Submit -->
+                        <button type="submit" class="btn btn-primary btn-block mt-4">
+                            Publier l’événement
+                        </button>
+
+                    </form>
+                </div>
             </div>
-        {% endfor %}
-        <button type="submit" class="btn btn-primary">Créer</button>
-    </form>
+        </div>
+    </div>
 </div>
 
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
-</body>
-</html>
+
+{% endblock %}

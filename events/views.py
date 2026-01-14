@@ -7,10 +7,17 @@ from users.models import User
 from events.models import Event
 
 
+#=============================================
+# PAGE D'ACCUEIL + LISTE DES ÉVÉNEMENTS
+#=============================================
 def home(request):
     events = Event.objects.filter(status='PUBLISHED').order_by('-created_at')
     return render(request, 'event/home.html', {'events': events})
 
+
+#=============================================
+# CONNEXION UTILISATEUR
+#=============================================
 def connexion(request):
     if request.method == 'POST':
         email = request.POST.get('email')
@@ -31,14 +38,23 @@ def connexion(request):
 
     return render(request, 'event/home.html')
 
+
+#=============================================
+# DÉCONNEXION UTILISATEUR
+#=============================================
 def deconnexion(request):
     logout(request)
     return redirect('home')
 
 
-def create_event(request):
-    if request.user.role != 'PROMOTER':
-        return redirect('events:list')  # Rediriger si l'utilisateur n'est pas promoteur
+#=============================================
+# AJOUTER UN ÉVÉNEMENT
+#=============================================
+def add_event(request):
+    if not (request.user.is_superuser or request.user.role == 'PROMOTER'):
+        return redirect('home')
+    # if request.user.role != 'PROMOTER':
+    #     return redirect('home')  # Rediriger si l'utilisateur n'est pas promoteur
 
     if request.method == 'POST':
         form = EventForm(request.POST, request.FILES)
@@ -46,8 +62,8 @@ def create_event(request):
             event = form.save(commit=False)
             event.promoter = request.user
             event.save()
-            return redirect('events:list')  # Rediriger vers la liste des événements
+            return redirect('home')  # Rediriger vers la liste des événements
     else:
         form = EventForm()
 
-    return render(request, 'events/event_create.html', {'form': form})
+    return render(request, 'event/add_event.html', {'form': form})

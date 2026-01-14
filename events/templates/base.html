@@ -19,6 +19,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 
     <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <link rel="stylesheet" href="{% static 'css/add_event.css' %}">
 </head>
 
 <body class="d-flex flex-column min-vh-100">
@@ -33,13 +34,13 @@
 
         <div class="collapse navbar-collapse" id="mainNavbar">
             <ul class="navbar-nav mx-auto">
-                <li class="nav-item"><a class="nav-link" href="#">Accueil</a></li>
+                <li class="nav-item"><a class="nav-link" href="{% url 'home' %}">Accueil</a></li>
                 <li class="nav-item"><a class="nav-link" href="#">Événements</a></li>
                 <li class="nav-item"><a class="nav-link" href="#">Contact</a></li>
             </ul>
 
             <div class="d-flex align-items-center">
-                <a href="#" class="btn btn-primary mr-3 publish-btn">
+                <a href="{% url 'add_event' %}" class="btn btn-primary mr-3 publish-btn">
                     Publier un événement
                 </a>
 
@@ -90,7 +91,7 @@
     {% endblock %}
 
     <!-- FLOATING ADD BUTTON (MOBILE) -->
-    <a href="#" class="floating-add-btn d-lg-none">
+    <a href="{% url 'add_event' %}" class="floating-add-btn d-lg-none">
         <i class="fas fa-plus"></i>
     </a>
 
