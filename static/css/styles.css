@@ -140,6 +140,9 @@
      width: 250px;
  }
 
+ /* ========= LOGIN =========== */
+
+
  /* FLOATING BUTTON */
  .floating-add-btn {
      position: fixed;
@@ -174,7 +177,103 @@
 
  /* LOGIN DROPDOWN */
  .login-dropdown {
-     width: 260px;
+     width: 300px;
+     background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+     border: 1px solid #e9ecef;
+     border-radius: 12px;
+     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+     animation: dropdownSlide 0.3s ease-out;
+ }
+
+ @keyframes dropdownSlide {
+     from {
+         opacity: 0;
+         transform: translateY(-10px);
+     }
+
+     to {
+         opacity: 1;
+         transform: translateY(0);
+     }
+ }
+
+ .login-dropdown h6 {
+     color: #2c3e50;
+     font-weight: 600;
+     font-size: 16px;
+     margin-bottom: 15px;
+     padding: 0;
+ }
+
+ .login-dropdown .form-group {
+     margin-bottom: 12px;
+ }
+
+ .login-dropdown .form-control {
+     border: 2px solid #e9ecef;
+     border-radius: 8px;
+     padding: 10px 12px;
+     font-size: 13px;
+     transition: all 0.3s ease;
+     background-color: white;
+ }
+
+ .login-dropdown .form-control:focus {
+     border-color: #F4A261;
+     box-shadow: 0 0 0 3px rgba(244, 162, 97, 0.1);
+     outline: none;
+ }
+
+ .login-dropdown .form-control::placeholder {
+     color: #adb5bd;
+ }
+
+ .login-dropdown p {
+     font-size: 12px;
+     color: #6c757d;
+     margin: 10px 0;
+ }
+
+ .login-dropdown p a {
+     color: #F4A261;
+     text-decoration: none;
+     font-weight: 500;
+ }
+
+ .login-dropdown p a:hover {
+     color: #e76f51;
+     text-decoration: underline;
+ }
+
+ .login-dropdown a {
+     color: #6c757d;
+     font-size: 12px;
+     text-decoration: none;
+ }
+
+ .login-dropdown a:hover {
+     color: #F4A261;
+ }
+
+ .login-dropdown .btn-primary {
+     background-color: #F4A261;
+     border: none;
+     border-radius: 8px;
+     font-weight: 500;
+     font-size: 13px;
+     padding: 10px 16px;
+     margin-top: 10px;
+     transition: all 0.3s ease;
+ }
+
+ .login-dropdown .btn-primary:hover {
+     background-color: #e76f51;
+     transform: translateY(-2px);
+     box-shadow: 0 5px 15px rgba(244, 162, 97, 0.3);
+ }
+
+ .login-dropdown .btn-primary:active {
+     transform: translateY(0);
  }
 
  /* FIX MOBILE LOGIN DROPDOWN */

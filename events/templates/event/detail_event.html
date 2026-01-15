@@ -1,0 +1,103 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+
+<div class="container my-5">
+
+    <div class="row">
+
+        <!-- ================= MAIN CONTENT ================= -->
+        <div class="col-lg-8 col-md-12">
+
+            <!-- SECTION 1 : EVENT DETAILS -->
+            <div class="row event-detail-card shadow-sm mb-5">
+
+                <div class="col-md-6 p-0">
+                    <img src="{{ event.image.url }}" alt="Image événement" class="event-image">
+                </div>
+
+                <div class="col-md-6 p-4">
+                    <h2 class="event-title">{{ event.title }}</h2>
+                    <p class="event-meta">
+                        <i class="bi bi-calendar-event"></i><span>Start :</span> {{ event.start_datetime }}
+                        <br>
+                        <i class="bi bi-calendar-event"></i><span> End :</span> {{ event.end_datetime }}
+                        <br>
+                        <i class="bi bi-geo-alt"></i> {{ event.location }}
+                    </p>
+
+                    <p class="event-description">
+                        {{ event.description }}
+                    </p>
+
+                    <p class="event-price">
+                        🎟️ Prix : <strong>5 000 FCFA</strong>
+                    </p>
+
+                    <div class="d-flex gap-3 mt-4 flex-wrap">
+                        <a href="mailto:contact@event.com" class="btn btn-contact">
+                            <i class="bi bi-envelope"></i>
+                        </a>
+
+                        <a href="#" target="_blank" class="btn btn-whatsapp">
+                            <i class="bi bi-whatsapp"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SECTION 2 : COMMENTS -->
+            <div class="comments-section shadow-sm p-4 mb-4">
+                <h4 class="mb-4 comments-title">Commentaires</h4>
+
+                <div class="comment mb-3">
+                    <strong>Jean Dupont</strong>
+                    <p>Super événement 🔥</p>
+                </div>
+
+                <form class="mt-4">
+                    <textarea class="form-control mb-3" rows="3" placeholder="Ajouter un commentaire..."></textarea>
+                    <button type="submit" class="btn btn-comment">
+                        Publier
+                    </button>
+                </form>
+            </div>
+
+        </div>
+
+        <!-- ================= SIDEBAR ADS ================= -->
+        <div class="col-lg-4 col-md-12">
+
+            <div class="sidebar sticky-top">
+
+                <!-- Google Ads -->
+                <div class="ad-box mb-4">
+                    <h6 class="sidebar-title">Publicité</h6>
+                    <div class="ad-placeholder">
+                        Google Ads 300x250
+                    </div>
+                </div>
+
+                <!-- Sponsoring -->
+                <div class="ad-box mb-4">
+                    <h6 class="sidebar-title">Sponsor officiel</h6>
+                    <img src="sponsor.jpg" alt="Sponsor" class="img-fluid sponsor-img">
+                </div>
+
+                <!-- Autre pub -->
+                <div class="ad-box">
+                    <h6 class="sidebar-title">Partenaire</h6>
+                    <div class="ad-placeholder">
+                        Votre pub ici
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+{% endblock %}

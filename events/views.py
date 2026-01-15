@@ -14,6 +14,17 @@ def home(request):
     events = Event.objects.filter(status='PUBLISHED').order_by('-created_at')
     return render(request, 'event/home.html', {'events': events})
 
+# =============================================
+# PAGE DE DÉTAIL D'UN ÉVÉNEMENT
+# =============================================
+def event_detail(request, sulg):
+    try:
+        event = Event.objects.get(slug=sulg, status='PUBLISHED')
+    except Event.DoesNotExist:
+        return redirect('home')  # Rediriger vers la page d'accueil si l'événement n'existe pas
+
+    return render(request, 'event/detail_event.html', {'event': event})
+
 
 #=============================================
 # CONNEXION UTILISATEUR
@@ -25,10 +36,9 @@ def connexion(request):
 
         try:
             user = User.objects.get(email=email)
-            user_auth = authenticate(username=user.username, password=password)
-
-            if user_auth is not None:
-                login(request, user_auth)
+            # Vérifier le mot de passe avec la méthode Django
+            if user.check_password(password):
+                login(request, user)
                 messages.success(request, "Connexion réussie.")
                 return redirect('home')
             else:

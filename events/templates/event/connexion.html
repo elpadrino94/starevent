@@ -1,12 +1,59 @@
 {% extends "base.html" %}
+{% load static %}
 
 {% block content %}
-<h1>Connexion</h1>
-{% if messages %}
-{% for message in messages %}
-<div class="alert alert-danger">
-    {{ message }}
+<link rel="stylesheet" href="{% static 'css/connexion.css' %}">
+
+<div class="connexion-container">
+    <div class="connexion-wrapper">
+        <div class="connexion-card">
+            <h2 class="connexion-title">Se connecter</h2>
+            
+            {% if messages %}
+            {% for message in messages %}
+            <div class="alert {% if message.tags %}alert-{{ message.tags }}{% else %}alert-info{% endif %}" role="alert">
+                <span>{{ message }}</span>
+            </div>
+            {% endfor %}
+            {% endif %}
+
+            <form method="post" class="connexion-form">
+                {% csrf_token %}
+                
+                <div class="form-group">
+                    <label for="email" class="form-label">Adresse Email</label>
+                    <input 
+                        type="email" 
+                        id="email" 
+                        name="email" 
+                        class="form-control" 
+                        placeholder="exemple@email.com"
+                        required
+                    >
+                </div>
+
+                <div class="form-group">
+                    <label for="password" class="form-label">Mot de passe</label>
+                    <input 
+                        type="password" 
+                        id="password" 
+                        name="password" 
+                        class="form-control" 
+                        placeholder="••••••••"
+                        required
+                    >
+                </div>
+
+                <button type="submit" class="btn-connexion">
+                    Se connecter
+                </button>
+            </form>
+
+            <div class="connexion-footer">
+                <p>Pas encore de compte ? <a href="{% url 'register' %}">S'inscrire ici</a></p>
+            </div>
+        </div>
+    </div>
 </div>
-{% endfor %}
-{% endif %}
-{% endblock content %}
+
+{% endblock %}

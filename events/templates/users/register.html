@@ -14,47 +14,72 @@
                         Créer un compte
                     </h3>
 
-                    <form enctype="multipart/form-data">
+
+                    <form enctype="multipart/form-data" method="post">
+                        {% csrf_token %}
+                        {% if form.non_field_errors %}
+                        <div class="alert alert-danger">
+                            {{ form.non_field_errors }}
+                        </div>
+                        {% endif %}
 
                         <div class="row">
                             <div class="col-md-6 mb-3">
                                 <label class="form-label">Nom</label>
-                                <input type="text" class="form-control" name="first_name" placeholder="Votre nom">
+                                {{ form.last_name }}
+                                <!-- <input type="text" class="form-control" name="first_name" placeholder="Votre nom">  -->
                             </div>
                             <div class="col-md-6 mb-3">
                                 <label class="form-label">Prénom</label>
-                                <input type="text" class="form-control" name="last_name" placeholder="Votre prénom">
+                                {{ form.first_name }}
+                                <!-- <input type="text" class="form-control" name="last_name" placeholder="Votre prénom"> -->
                             </div>
                         </div>
 
                         <div class="mb-3">
                             <label class="form-label">Nom d'utilisateur</label>
-                            <input type="text" class="form-control" name="username" placeholder="username">
+                            {{ form.username }}
+                            <!-- <input type="text" class="form-control" name="username" placeholder="username"> -->
                         </div>
 
                         <div class="mb-3">
                             <label class="form-label">Adresse email</label>
-                            <input type="email" class="form-control" name="email" placeholder="email@example.com">
+                            {{ form.email }}
+                            <!-- <input type="email" class="form-control" name="email" placeholder="email@example.com"> -->
                         </div>
 
                         <div class="mb-3">
                             <label class="form-label">Téléphone</label>
-                            <input type="tel" class="form-control" name="phone_number" placeholder="+228 90 00 00 00">
+                            {{ form.phone_number }}
+                            <!-- <input type="tel" class="form-control" name="phone_number" placeholder="+228 90 00 00 00"> -->
                         </div>
 
                         <div class="mb-3">
                             <label class="form-label">Mot de passe</label>
-                            <input type="password" class="form-control" name="password" placeholder="********">
+                            {{ form.password }}
+                            {% if form.password.errors %}
+                            <div class="alert alert-danger mt-2">
+                                {{ form.password.errors }}
+                            </div>
+                            {% endif %}
+                            <!-- <input type="password" class="form-control" name="password" placeholder="********"> -->
                         </div>
 
                         <div class="mb-3">
                             <label class="form-label">Confirmer le mot de passe</label>
-                            <input type="password" class="form-control" name="confirm_password" placeholder="********">
+                            {{ form.password_confirm }}
+                            {% if form.password_confirm.errors %}
+                            <div class="alert alert-danger mt-2">
+                                {{ form.password_confirm.errors }}
+                            </div>
+                            {% endif %}
+                            <!-- <input type="password" class="form-control" name="confirm_password" placeholder="********"> -->
                         </div>
 
                         <div class="mb-3">
                             <label class="form-label">Photo de profil</label>
-                            <input type="file" class="form-control" name="profile_picture">
+                            {{ form.profile_picture }}
+                            <!-- <input type="file" class="form-control" name="profile_picture"> -->
                         </div>
 
                         <div class="d-grid mt-4">

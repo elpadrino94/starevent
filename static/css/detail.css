@@ -1,0 +1,151 @@
+/* Detail Page Stylesheet */
+/* Color Palette:
+   - Primary: #6F3B2A (Dark Brown)
+   - Secondary: #F4A261 (Light Orange)
+   - Accent: #E76F51 (Vibrant Red-Orange)
+   - Background: #F9F5F2 (Light Beige)
+   - Text: #6B7280 (Gray)
+*/
+/* Event card */
+.event-detail-card {
+    background-color: #FFFFFF;
+    border-radius: 12px;
+    overflow: hidden;
+    padding: 10px;
+}
+
+.event-image {
+    width: 100%;
+    height: 80%;
+    min-height: 320px;
+    object-fit: cover;
+    padding: 10px;
+    border-radius: 20px;
+}
+
+.event-title {
+    color: #6F3B2A;
+    font-weight: 700;
+}
+
+.event-description {
+    text-align: justify;
+    font-family: 'Poppins', sans-serif;
+}
+
+.event-meta {
+    color: #6B7280;
+}
+
+.event-meta i {
+    color: #6F3B2A;
+    font-weight: 600;
+}
+
+.event-meta span {
+    color: #1e1e1e;
+    font-weight: 600;
+    margin-left: 5px;
+}
+
+.event-price {
+    color: #6F3B2A;
+}
+
+/* Buttons */
+.btn-contact {
+    /* background-color: #F4A261; */
+    color: #F4A261;
+    font-weight: 300;
+    font-size: 1.5rem;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+    border: 2px solid #F4A261;
+    transition: all 0.3s ease;
+    margin-right: 15px;
+}
+
+.btn-contact:hover {
+    background-color: #E76F51;
+    color: white;
+    border-color: #E76F51;
+    text-decoration: none;
+}
+
+.btn-whatsapp {
+    /* background-color: #25D366; */
+    color: #25D366;
+    font-weight: 600;
+    font-size: 1.8rem;
+    border-radius: 8px;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid #25D366;
+    transition: all 0.3s ease;
+    margin-right: 15px;
+}
+
+.btn-whatsapp:hover {
+    background-color: #25D366;
+    color: white;
+    text-decoration: none;
+}
+
+/* Comments */
+.comments-section {
+    background-color: #FFFFFF;
+    border-radius: 12px;
+}
+
+.comment {
+    background-color: #F9F5F2;
+    padding: 10px;
+    border-radius: 8px;
+}
+
+/* Sidebar */
+.sidebar {
+    margin-top: 10px;
+}
+
+.sidebar-title {
+    color: #6F3B2A;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.ad-box {
+    background-color: #FFFFFF;
+    padding: 15px;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.ad-placeholder {
+    background-color: #F1ECE7;
+    height: 250px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #6B7280;
+    font-size: 0.9rem;
+}
+
+.sponsor-img {
+    border-radius: 8px;
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+    .sidebar {
+        margin-top: 40px;
+    }
+}
