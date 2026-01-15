@@ -1,0 +1,88 @@
+/* Background général */
+body {
+    background-color: #F5EFEA;
+    font-family: "Segoe UI", sans-serif;
+}
+
+/* Carte d'inscription */
+.register-card {
+    border: none;
+    border-radius: 12px;
+    background-color: #FFFFFF;
+}
+
+/* Titre */
+.register-title {
+    color: #6F3B2A;
+    font-weight: 700;
+}
+
+/* Labels */
+.form-label {
+    font-weight: 500;
+    color: #6F3B2A;
+}
+
+/* Inputs */
+.form-control {
+    border-radius: 8px;
+    border: 1px solid #E5DDD6;
+}
+
+.form-control:focus {
+    border-color: #F4A261;
+    box-shadow: 0 0 0 0.2rem rgba(244, 162, 97, 0.25);
+}
+
+/* Bouton principal */
+.btn-register {
+    background-color: #F4A261;
+    color: #FFFFFF;
+    font-weight: 600;
+    border-radius: 8px;
+    padding: 12px;
+    transition: background-color 0.3s ease;
+}
+
+.btn-register:hover {
+    background-color: #E76F51;
+    color: #FFFFFF;
+}
+
+/* Masquer le bouton flottant sur la page d'inscription */
+/* .floating-add-btn {
+    display: none !important;
+} */
+
+/* Mobile adjustments */
+@media (max-width: 576px) {
+    .register-card {
+        padding: 10px;
+    }
+
+    .register-title {
+        font-size: 1.5rem;
+    }
+
+    .form-label {
+        text-align: start;
+        display: block;
+    }
+
+    .form-control {
+        width: 100% !important;
+        margin: 0 !important;
+    }
+
+    .row>.col-md-6 {
+        width: 100%;
+    }
+
+    form {
+        width: 100%;
+    }
+
+    form>div {
+        width: 100%;
+    }
+}

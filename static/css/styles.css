@@ -1,86 +1,202 @@
-/* HERO */
-.hero {
-    height: 40vh;
-    background: url('https://picsum.photos/1200/600') center/cover no-repeat;
-}
+ @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
-/* CARDS */
-.col-md-9 {
-    margin-top: 30px;
-}
+ /*========== GLOBAL STYLES ========= */
+ :root {
+     --primary-color: #6F3B2A;
+     --secondary-color: #F4A261;
+     --btn1-color: #f4a261;
+     --btn2-color: #6f3b2a;
+     --hover1-color: #e76f51;
+     --hover2-color: #5a2e21;
+     --background-color: #F5EFEA;
+     --text-color: #ffffff;
+     --text1-color: #1e1e1e;
+     --box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
 
-.event-card img {
-    height: 200px;
-    object-fit: cover;
-}
+ }
 
-/* SIDEBAR */
-.category-dropdown {
-    display: none;
-}
+ body {
+     font-family: 'Poppins', sans-serif;
+     background-color: var(--background-color);
+     color: var(--text1-color);
+     margin: 0;
+     padding: 0;
+ }
 
-/* LOGIN DROPDOWN */
-.login-dropdown {
-    width: 250px;
-}
+ /*======== NAVBAR =========*/
+ .navbar {
+     background-color: #6F3B2A !important;
+     box-shadow: var(--box-shadow);
+     margin-bottom: 15px;
+ }
 
-/* FLOATING BUTTON */
-.floating-add-btn {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    background: #007bff;
-    color: #fff;
-    width: 55px;
-    height: 55px;
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 24px;
-    z-index: 1000;
-}
+ .navbar.navbar-dark {
+     background-color: #6F3B2A !important;
+ }
 
-/* RESPONSIVE */
-@media (max-width: 991px) {
-    .sidebar .category-list {
-        display: none;
-    }
+ .navbar .navbar-brand {
+     color: #F4A261 !important;
+     font-weight: bold;
+     font-size: 1.5rem;
+     font-family: 'Montserrat', sans-serif;
+ }
 
-    .category-dropdown {
-        display: block;
-    }
+ .navbar .nav-link {
+     color: #ffffff !important;
+     margin: 0 10px;
+     font-size: 1.3rem;
+     font-weight: 500;
+ }
 
-    .publish-btn {
-        display: none;
-    }
-}
+ .navbar .nav-link:hover {
+     color: #F4A261 !important;
+     transition: 0.5s;
+ }
 
-/* LOGIN DROPDOWN */
-.login-dropdown {
-    width: 260px;
-}
+ .navbar .publish-btn {
+     background-color: var(--btn1-color);
+     color: var(--text-color);
+     font-weight: 500;
+ }
 
-/* FIX MOBILE LOGIN DROPDOWN */
-@media (max-width: 576px) {
-    .login-dropdown {
-        position: fixed !important;
-        top: 215px;
-        /* sous la navbar */
-        right: 10px !important;
-        left: 10px !important;
-        /* empêche le débordement */
-        width: auto;
-        max-width: calc(100% - 20px);
-        transform: none !important;
-    }
+ .navbar .publish-btn:hover {
+     background-color: var(--hover1-color);
+     color: var(--text-color);
+     transition: 2s;
+ }
 
-    .form-control {
-        /* empêche le débordement */
-        width: 70%;
-        max-width: calc(100% - 20px);
-        transform: none !important;
-        display: flex;
-        justify-content: center;
-    }
-}
+ .navbar .dropdown-toggle {
+     border: none;
+     font-size: .8rem;
+ }
+
+ .navbar .user-icon {
+     color: var(--text-color);
+     background-color: #7a7171;
+ }
+
+ /* HERO */
+ .hero {
+     height: 40vh;
+     background: url('https://picsum.photos/1200/600') center/cover no-repeat;
+ }
+
+ .hero h1 {
+     color: var(--text1-color);
+     top: 50%;
+     font-size: 2.5rem;
+     font-weight: bold;
+     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+ }
+
+ /* CARDS */
+ .col-md-9 {
+     margin-top: 30px;
+ }
+
+ .col-md-4 {
+     box-shadow: var(--box-shadow);
+ }
+
+ .event-card img {
+     height: 200px;
+     object-fit: cover;
+     padding: 10px;
+     border-radius: 15px;
+ }
+
+ .card-body h5 {
+     font-weight: 500;
+     color: var(--text1-color);
+     font-family: 'Montserrat', sans-serif;
+ }
+
+ .card-body p {
+     font-weight: 300;
+     color: var(--text1-color);
+     font-family: 'Poppins', sans-serif;
+ }
+
+ .card-body .btn-primary {
+     background-color: var(--btn2-color);
+     color: var(--text-color);
+     font-weight: 400;
+     border: none;
+ }
+
+ .card-body .btn-primary:hover {
+     background-color: var(--hover2-color);
+     color: var(--text-color);
+     transition: 0.5s;
+ }
+
+ /* SIDEBAR */
+ .category-dropdown {
+     display: none;
+ }
+
+ /* LOGIN DROPDOWN */
+ .login-dropdown {
+     width: 250px;
+ }
+
+ /* FLOATING BUTTON */
+ .floating-add-btn {
+     position: fixed;
+     bottom: 20px;
+     right: 20px;
+     background: var(--primary-color) !important;
+     color: var(--text-color);
+     width: 55px;
+     height: 55px;
+     border-radius: 50%;
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     font-size: 24px;
+     z-index: 1000;
+ }
+
+ /* RESPONSIVE */
+ @media (max-width: 991px) {
+     .sidebar .category-list {
+         display: none;
+     }
+
+     .category-dropdown {
+         display: block;
+     }
+
+     .publish-btn {
+         display: none;
+     }
+ }
+
+ /* LOGIN DROPDOWN */
+ .login-dropdown {
+     width: 260px;
+ }
+
+ /* FIX MOBILE LOGIN DROPDOWN */
+ @media (max-width: 576px) {
+     .login-dropdown {
+         position: fixed !important;
+         top: 215px;
+         /* sous la navbar */
+         right: 10px !important;
+         left: 10px !important;
+         /* empêche le débordement */
+         width: auto;
+         max-width: calc(100% - 20px);
+         transform: none !important;
+     }
+
+     .form-control {
+         /* empêche le débordement */
+         width: 70%;
+         max-width: calc(100% - 20px);
+         transform: none !important;
+         display: flex;
+         justify-content: center;
+     }
+ }
